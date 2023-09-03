@@ -112,7 +112,7 @@
 //         int count = 0;
 //         foreach (string str in strs)
 //         {
-           
+
 //         }
 //     }
 // }
@@ -131,10 +131,10 @@
 //             currentValue = RomanNumerals(chars[i]);
 //             result += (RomanNumerals(chars[i+1]) > currentValue ? -1 : 1) * currentValue;
 //         }
-        
+
 //         return result +  RomanNumerals(chars[chars.Length - 1]);
 //     }
-    
+
 //     public int RomanNumerals(char c)
 //     {
 //         switch(c){
@@ -151,9 +151,42 @@
 // }
 
 //// 20. Valid Parentheses
+Solution test = new Solution();
+var check = test.IsValid("()");
 
 public class Solution {
     public bool IsValid(string s) {
-        
+        foreach (char bracket in s)
+        {
+            if (bracket == ')')
+                continue;
+            if (bracket == ']')
+                continue;
+            if (bracket == '}')
+                continue;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (bracket == '(')
+                {
+                    if (s[i] == ')')
+                        break;
+                    else continue;
+                }
+                else if (bracket == '[')
+                {
+                    if (s[i] == ']')
+                        break;
+                    else continue;
+                }
+                else if (bracket == '{')
+                {
+                    if (s[i] == '}')
+                        break;
+                    else continue;
+                }   
+            }
+            return false;
+        }
+        return true;
     }
 }

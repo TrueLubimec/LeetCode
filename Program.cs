@@ -151,45 +151,37 @@
 // }
 
 //// 20. Valid Parentheses
-// Solution test = new Solution();
-// var check = test.IsValid("()");
+Solution test = new Solution();
+var check = test.IsValid("{[]}");
 
-// public class Solution {
-//     public bool IsValid(string s) {
-//         foreach (char bracket in s)
-//         {
-//             if (bracket == ')')
-//                 continue;
-//             if (bracket == ']')
-//                 continue;
-//             if (bracket == '}')
-//                 continue;
-//             for (int i = 0; i < s.Length; i++)
-//             {
-//                 if (bracket == '(')
-//                 {
-//                     if (s[i] == ')')
-//                         break;
-//                     else continue;
-//                 }
-//                 else if (bracket == '[')
-//                 {
-//                     if (s[i] == ']')
-//                         break;
-//                     else continue;
-//                 }
-//                 else if (bracket == '{')
-//                 {
-//                     if (s[i] == '}')
-//                         break;
-//                     else continue;
-//                 }   
-//             }
-//             return false;
-//         }
-//         return true;
-//     }
-// }
+public class Solution
+{
+    public bool IsValid(string s)
+    {
+        foreach (char bracket in s)
+        {
+            if (s[s.IndexOf(bracket)] == '(')
+            {
+                if (s[s.IndexOf(bracket) + 1] == ')')
+                    continue;
+                else return false;
+            }
+            if (s[s.IndexOf(bracket)] == '[')
+            {
+                if (s[s.IndexOf(bracket) + 1] == ']')
+                    continue;
+                else return false;
+            }
+            if (s[s.IndexOf(bracket)] == '{')
+            {
+                if (s[s.IndexOf(bracket) + 1] == '}')
+                    continue;
+                else return false;
+            }
+        }
+        return true;
+    }
+}
 
 
 
@@ -209,12 +201,12 @@
 //    public string Name;
 //}
 
-Container container = new Container() { Value = 1 };
-Container.Nullify(container);
-Console.WriteLine(container.Value);
+//Container container = new Container() { Value = 1 };
+//Container.Nullify(container);
+//Console.WriteLine(container.Value);
 
-public struct Container
-{
-    public int Value;
-    public static void Nullify(Container container) => container.Value = 0;
-}
+//public struct Container
+//{
+//    public int Value;
+//    public static void Nullify(Container container) => container.Value = 0;
+//}

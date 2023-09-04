@@ -151,42 +151,70 @@
 // }
 
 //// 20. Valid Parentheses
-Solution test = new Solution();
-var check = test.IsValid("()");
+// Solution test = new Solution();
+// var check = test.IsValid("()");
 
-public class Solution {
-    public bool IsValid(string s) {
-        foreach (char bracket in s)
-        {
-            if (bracket == ')')
-                continue;
-            if (bracket == ']')
-                continue;
-            if (bracket == '}')
-                continue;
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (bracket == '(')
-                {
-                    if (s[i] == ')')
-                        break;
-                    else continue;
-                }
-                else if (bracket == '[')
-                {
-                    if (s[i] == ']')
-                        break;
-                    else continue;
-                }
-                else if (bracket == '{')
-                {
-                    if (s[i] == '}')
-                        break;
-                    else continue;
-                }   
-            }
-            return false;
-        }
-        return true;
-    }
+// public class Solution {
+//     public bool IsValid(string s) {
+//         foreach (char bracket in s)
+//         {
+//             if (bracket == ')')
+//                 continue;
+//             if (bracket == ']')
+//                 continue;
+//             if (bracket == '}')
+//                 continue;
+//             for (int i = 0; i < s.Length; i++)
+//             {
+//                 if (bracket == '(')
+//                 {
+//                     if (s[i] == ')')
+//                         break;
+//                     else continue;
+//                 }
+//                 else if (bracket == '[')
+//                 {
+//                     if (s[i] == ']')
+//                         break;
+//                     else continue;
+//                 }
+//                 else if (bracket == '{')
+//                 {
+//                     if (s[i] == '}')
+//                         break;
+//                     else continue;
+//                 }   
+//             }
+//             return false;
+//         }
+//         return true;
+//     }
+// }
+
+
+
+//Human human = new Human();
+//Robot robot = new Robot(human);
+//robot.HumanOperator.Name = "Masha";
+//Console.WriteLine(robot.HumanOperator.Name);
+
+//public class Robot
+//{
+//    public readonly Human HumanOperator;
+//    public Robot(Human humanOperator) => HumanOperator = humanOperator;
+//}
+
+//public class Human
+//{
+//    public string Name;
+//}
+
+Container container = new Container() { Value = 1 };
+Container.Nullify(container);
+Console.WriteLine(container.Value);
+
+public struct Container
+{
+    public int Value;
+    public static void Nullify(Container container) => container.Value = 0;
 }

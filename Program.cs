@@ -1,5 +1,5 @@
 ﻿
-//// 2405. Optimal Partition of String                                      DONE
+//// 2405. Optimal Partition of String                                                                        DONE
 //public class Solution
 //{
 //    public int PartitionString(string s)
@@ -40,7 +40,7 @@
 //}
 
 
-//// 1. Two Sum                                                             для меня DONE
+//// 1. Two Sum                                                                            для меня DONE
 //public class Solution
 //{
 //    public int[] TwoSum(int[] nums, int target)
@@ -73,7 +73,7 @@
 
 
 
-//// 9. Palindrome Number                                                   частично DONE, прост на 10ки метод не работал
+//// 9. Palindrome Number                                                             частично DONE, прост на 10ки метод не работал
 
 // МОё изи решение (но на 10+ не работает)
 //int x = int.Parse(Console.ReadLine());
@@ -100,26 +100,76 @@
 
 
 
-//// 14. Longest Common Prefix
+//// 14. Longest Common Prefix                                                                                  //// 122 / 124
 
-// public class Solution
-// {
-//     public string LongestCommonPrefix(string[] strs)
-//     {
-//         int lengthOfArray = strs.Length;
-//         string firstStr = strs[0];
-//         List<string> list = new List<string>();
-//         int count = 0;
-//         foreach (string str in strs)
-//         {
+//var test = new Solution();
+//string[] strings = { "ac", "ac", "a", "a" };
+//var lelel = test.LongestCommonPrefix(strings);
+//Console.WriteLine(lelel);
+//public class Solution
+//{
+//    public string LongestCommonPrefix(string[] strs)
+//    {
+//        if (strs.Any() == false)
+//            return "";
+//        if (strs.Length == 1)
+//            return strs[0];
+//        List<char> result = new List<char>();
+//        var firstWord = strs[0];
+//        var secondWord = strs[1];
+//        for (int a = 0; a < firstWord.Length && a < secondWord.Length; a++)
+//        {
+//            if (firstWord[a] == secondWord[a])
+//                result.Add(firstWord[a]);
+//            else
+//                break;
+//        }
+//        if (result.Any() ==  false) 
+//            return "";
+//        for (int i = 2; i < strs.Length; i++)
+//        {
+//            var word = strs[i];
+//            if (word.Length == 0)
+//                return "";
+//            for (int b = 0; b < word.Length && b < result.Count; b++)
+//            {
+//                if (word[b] == result[b])
+//                    continue;
+//                else
+//                {
+//                    result.RemoveRange(b,result.Count - b);
+//                    break;
+//                }
+//            }
+//        }
+//        var wat = String.Join("", result.ToArray());
+//        return wat;
+//    }
+//}
 
-//         }
-//     }
-// }
+
+//// SOLV
+
+//public class Solution
+//{
+//    public string LongestCommonPrefix(string[] ss)
+//    {
+//        string shortest = ss.OrderBy(s => s.Length).First();
+
+//        for (int i = 0; i < shortest.Length; i++)
+//        {
+//            if (ss.Select(s => s[i]).Distinct().Count() > 1) return shortest[..i];
+//        }
+
+//        return shortest;
+//    }
+//}
 
 
 
-//// 13. Roman to Integer               // solution is not mine
+
+
+//// 13. Roman to Integer                                                                                           // solution is not mine
 
 // public class Solution {
 //     public int RomanToInt(string s) {
@@ -150,40 +200,64 @@
 //     }
 // }
 
-//// 20. Valid Parentheses
-Solution test = new Solution();
-var check = test.IsValid("{[]}");
+//// 20. Valid Parentheses                                                                                      //// PIZDOS SNOVA   //// LOSE
 
-public class Solution
-{
-    public bool IsValid(string s)
-    {
-        foreach (char bracket in s)
-        {
-            if (s[s.IndexOf(bracket)] == '(')
-            {
-                if (s[s.IndexOf(bracket) + 1] == ')')
-                    continue;
-                else return false;
-            }
-            if (s[s.IndexOf(bracket)] == '[')
-            {
-                if (s[s.IndexOf(bracket) + 1] == ']')
-                    continue;
-                else return false;
-            }
-            if (s[s.IndexOf(bracket)] == '{')
-            {
-                if (s[s.IndexOf(bracket) + 1] == '}')
-                    continue;
-                else return false;
-            }
-        }
-        return true;
-    }
-}
+//public class Solution
+//{
+//    public bool IsValid(string s)
+//    {
+//        foreach (char bracket in s)
+//        {
+//            if (s[s.IndexOf(bracket)] == '(')
+//            {
+//                if (s[s.IndexOf(bracket) + 1] == ')')
+//                    continue;
+//                else return false;
+//            }
+//            if (s[s.IndexOf(bracket)] == '[')
+//            {
+//                if (s[s.IndexOf(bracket) + 1] == ']')
+//                    continue;
+//                else return false;
+//            }
+//            if (s[s.IndexOf(bracket)] == '{')
+//            {
+//                if (s[s.IndexOf(bracket) + 1] == '}')
+//                    continue;
+//                else return false;
+//            }
+//        }
+//        return true;
+//    }
+//}
+
+//// STOLEN SOLV
+//public class Solution
+//{
+//    public bool IsValid(string s)
+//    {
+//        // Get ready initial state (enforce element type)
+//        var k = new Stack<char>();
+//        // Evaluate each character for potential mismatch 
+//        foreach (char c in s)
+//        {
+//            // Push closing round bracket onto the stack
+//            if (c == '(') { k.Push(')'); continue; }
+//            // Push closing curly bracket onto the stack
+//            if (c == '{') { k.Push('}'); continue; }
+//            // Push closing square bracket onto the stack
+//            if (c == '[') { k.Push(']'); continue; }
+//            // Look out for imbalanced strings or mismatches
+//            if (k.Count == 0 || c != k.Pop()) return false;
+//        }
+//        // Empty stack means string is valid and invalid otherwise
+//        return k.Count == 0;
+//    }
+//}
 
 
+
+//// TINKOFF
 
 //Human human = new Human();
 //Robot robot = new Robot(human);
@@ -209,4 +283,16 @@ public class Solution
 //{
 //    public int Value;
 //    public static void Nullify(Container container) => container.Value = 0;
+//}
+
+
+
+//// 121. Best Time to Buy and Sell Stock
+
+//public class Solution
+//{
+//    public int MaxProfit(int[] prices)
+//    {
+
+//    }
 //}

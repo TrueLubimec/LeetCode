@@ -296,3 +296,36 @@
 
 //    }
 //}
+
+
+
+
+
+////21. Merge Two Sorted Lists
+
+
+// Definition for singly-linked list.
+using System.Security.Cryptography.X509Certificates;
+
+public class ListNode {
+     public int val;
+     public ListNode next;
+     public ListNode(int val=0, ListNode next=null) {
+         this.val = val;
+         this.next = next;
+     }
+ }
+ 
+public class Solution {
+    public ListNode MergeTwoLists(ListNode list1, ListNode list2) {
+        List<int> result = new List<int>();
+        string leng = list1.ToString();
+        for (int i = 0; leng.Length > i; i++ )
+        {
+            result.Add(int.Parse(list1.next));
+
+        }
+        result.Sort();
+        return result;
+    }
+}

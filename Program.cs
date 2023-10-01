@@ -287,45 +287,64 @@
 
 
 
-//// 121. Best Time to Buy and Sell Stock
+//// 121. Best Time to Buy and Sell Stock                                                                               // ТАК-ТО УСПЕХ, ПРОСТО ОПТИМИЗИРОВАТЬ
+var sol = new Solution();
+int[] test = {7,6,4,3,1};
+System.Console.WriteLine(sol.MaxProfit(test));
+public class Solution
+{
+   public int MaxProfit(int[] prices)
+   {
+        int res = 0;
 
-//public class Solution
-//{
-//    public int MaxProfit(int[] prices)
-//    {
+        foreach (var item in prices){
+            var max = 0;
+            var index = Array.IndexOf(prices, item) + 1;
+            for (int i = index; i < prices.Length; i++){
+                if (max < prices[i]){
+                    max = prices[i];
+                }
+            }
+            var extra = max - item;
+            if (extra > res)
+                res = extra;
+        }
+        if (res <= 0)
+            return 0;
+        
+        return res;
+   }
+}
 
-//    }
-//}
 
 
 
 
-
-////21. Merge Two Sorted Lists
+////21. Merge Two Sorted Lists                                                                                      Я ВООБЩЕ НИЧЕГО НЕ ПОНЯЛ
 
 
 // Definition for singly-linked list.
-using System.Security.Cryptography.X509Certificates;
+// using System.Security.Cryptography.X509Certificates;
 
-public class ListNode {
-     public int val;
-     public ListNode next;
-     public ListNode(int val=0, ListNode next=null) {
-         this.val = val;
-         this.next = next;
-     }
- }
+// public class ListNode {
+//      public int val;
+//      public ListNode next;
+//      public ListNode(int val=0, ListNode next=null) {
+//          this.val = val;
+//          this.next = next;
+//      }
+//  }
  
-public class Solution {
-    public ListNode MergeTwoLists(ListNode list1, ListNode list2) {
-        List<int> result = new List<int>();
-        string leng = list1.ToString();
-        for (int i = 0; leng.Length > i; i++ )
-        {
-            result.Add(int.Parse(list1.next));
-
-        }
-        result.Sort();
-        return result;
-    }
-}
+// public class Solution {
+// public ListNode MergeTwoLists(ListNode l1, ListNode l2){
+//         if(l1 == null) return l2;
+//         if(l2 == null) return l1;
+//         if(l1.val <= l2.val){
+//             l1.next = MergeTwoLists(l1.next,l2);
+//             return l1;
+//         }else{
+//             l2.next = MergeTwoLists(l1,l2.next);
+//             return l2;
+//         }
+//     }
+// }

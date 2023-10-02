@@ -288,43 +288,57 @@
 
 
 //// 121. Best Time to Buy and Sell Stock                                                                               // ТАК-ТО УСПЕХ, ПРОСТО ОПТИМИЗИРОВАТЬ
-var sol = new Solution();
-int[] test = {7,6,4,3,1};
-System.Console.WriteLine(sol.MaxProfit(test));
-public class Solution
-{
-   public int MaxProfit(int[] prices)
-   {
-        int res = 0;
+// var sol = new Solution();
+// int[] test = {7,6,4,3,1};
+// System.Console.WriteLine(sol.MaxProfit(test));
+// public class Solution
+// {
+//    public int MaxProfit(int[] prices)
+//    {
+//         int res = 0;
 
-        foreach (var item in prices){
-            var max = 0;
-            var index = Array.IndexOf(prices, item) + 1;
-            for (int i = index; i < prices.Length; i++){
-                if (max < prices[i]){
-                    max = prices[i];
-                }
-            }
-            var extra = max - item;
-            if (extra > res)
-                res = extra;
-        }
-        if (res <= 0)
-            return 0;
+//         foreach (var item in prices){
+//             var max = 0;
+//             var index = Array.IndexOf(prices, item) + 1;
+//             for (int i = index; i < prices.Length; i++){
+//                 if (max < prices[i]){
+//                     max = prices[i];
+//                 }
+//             }
+//             var extra = max - item;
+//             if (extra > res)
+//                 res = extra;
+//         }
+//         if (res <= 0)
+//             return 0;
         
-        return res;
-   }
-}
+//         return res;
+//    }
+// }
 
-
+// //// НЕ МОЙ 
+// public class Solution {
+//     public int MaxProfit(int[] prices) {
+//         int max = 0;
+//         int min = prices[0];
+        
+//         for(int i=1;i<prices.Length;i++){
+//             if(prices[i] < min){
+//                 min = prices[i];
+//             }
+            
+//             else if((prices[i] - min) > max )
+//             {
+//                 max = prices[i] - min;
+//             }
+//         }
+//         return max;
+//     }
+//}
 
 
 
 ////21. Merge Two Sorted Lists                                                                                      Я ВООБЩЕ НИЧЕГО НЕ ПОНЯЛ
-
-
-// Definition for singly-linked list.
-// using System.Security.Cryptography.X509Certificates;
 
 // public class ListNode {
 //      public int val;
@@ -335,6 +349,7 @@ public class Solution
 //      }
 //  }
  
+
 // public class Solution {
 // public ListNode MergeTwoLists(ListNode l1, ListNode l2){
 //         if(l1 == null) return l2;
@@ -348,3 +363,29 @@ public class Solution
 //         }
 //     }
 // }
+
+
+////26. Remove Duplicates from Sorted Array
+var sol = new Solution();
+int[] test = {1, 1, 2};
+Console.WriteLine(sol.RemoveDuplicates(test));
+
+public class Solution {
+    public int RemoveDuplicates(int[] nums) {
+        int counter = 0;
+        List<int> values = new List<int>();
+        values.AddRange(nums);
+        for (int i = 0; i < nums.Length - 1; i++)
+        {
+            
+            if (values[i] == values[i + 1]){
+                values.RemoveAt(i + 1);
+                values.Add('_');
+            }
+            else{
+                counter++;
+            }
+        }
+        return counter;
+    }
+}

@@ -365,27 +365,41 @@
 // }
 
 
-////26. Remove Duplicates from Sorted Array
-var sol = new Solution();
-int[] test = {1, 1, 2};
-Console.WriteLine(sol.RemoveDuplicates(test));
+////26. Remove Duplicates from Sorted Array                                                           У МЕНЯ ВСЁ ПОЛУЧИЛОСЬ, НО САЙТ НЕ ПРИНЯЛ. 17К ДИЗЛАЙКОВ О ЧЕМ-ТО ГОВОРЯТ. ВОТ И ДУМАЙТЕ
+// var sol = new Solution();
+// int[] test = {0,0,1,1,1,2,2,3,3,4};
+// Console.WriteLine(sol.RemoveDuplicates(test));
 
-public class Solution {
-    public int RemoveDuplicates(int[] nums) {
-        int counter = 0;
-        List<int> values = new List<int>();
-        values.AddRange(nums);
-        for (int i = 0; i < nums.Length - 1; i++)
-        {
+// public class Solution {
+//     public int RemoveDuplicates(int[] nums) {
+//         int counter = nums.Length;
+//         List<int> values = new List<int>();
+//         values.AddRange(nums);
+//         for (int i = 0; i < nums.Length - 1; i++)
+//         {
             
-            if (values[i] == values[i + 1]){
-                values.RemoveAt(i + 1);
-                values.Add('_');
-            }
-            else{
-                counter++;
-            }
-        }
-        return counter;
-    }
-}
+//             if (values[i] == values[i + 1]){
+//                 values.RemoveAt(i + 1);
+                
+//                 counter--;
+//             }
+//         }
+//         return counter;
+//     }
+// }
+
+//// ЧУЖОЙ 
+// public class Solution
+// {
+//     public int RemoveDuplicates(int[] nums)
+//     {
+//         int i = 1;
+
+//         foreach (int n in nums)
+//         {
+//             if (nums[i - 1] != n) nums[i++] = n;
+//         }
+
+//         return i;
+//     }
+// }

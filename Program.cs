@@ -311,7 +311,7 @@
 //         }
 //         if (res <= 0)
 //             return 0;
-        
+
 //         return res;
 //    }
 // }
@@ -321,12 +321,12 @@
 //     public int MaxProfit(int[] prices) {
 //         int max = 0;
 //         int min = prices[0];
-        
+
 //         for(int i=1;i<prices.Length;i++){
 //             if(prices[i] < min){
 //                 min = prices[i];
 //             }
-            
+
 //             else if((prices[i] - min) > max )
 //             {
 //                 max = prices[i] - min;
@@ -348,7 +348,7 @@
 //          this.next = next;
 //      }
 //  }
- 
+
 
 // public class Solution {
 // public ListNode MergeTwoLists(ListNode l1, ListNode l2){
@@ -377,10 +377,10 @@
 //         values.AddRange(nums);
 //         for (int i = 0; i < nums.Length - 1; i++)
 //         {
-            
+
 //             if (values[i] == values[i + 1]){
 //                 values.RemoveAt(i + 1);
-                
+
 //                 counter--;
 //             }
 //         }
@@ -403,3 +403,9 @@
 //         return i;
 //     }
 // }
+
+
+using LeetCode;
+
+Solution solution = new Solution();
+Console.WriteLine(solution.LengthOfLastWord("   fly me   to   the moon  "));

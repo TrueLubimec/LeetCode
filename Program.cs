@@ -408,4 +408,5 @@
 using LeetCode;
 
 Solution solution = new Solution();
-Console.WriteLine(solution.LengthOfLastWord("   fly me   to   the moon  "));
+int[] test = {9,9};
+Console.WriteLine(solution.PlusOne(test));

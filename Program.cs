@@ -408,5 +408,5 @@
 using LeetCode;
 
 Solution solution = new Solution();
-int[] test = {9,9};
-Console.WriteLine(solution.PlusOne(test));
+// int[] test = {9,9};
+Console.WriteLine(solution.AddBinary("1010", "1011"));

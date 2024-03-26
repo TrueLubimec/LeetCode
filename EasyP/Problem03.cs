@@ -1,42 +1,71 @@
+
+//          608 / 987
 public class Solution {
     public int LengthOfLongestSubstring(string s) {
-        int count = 0;
-        int countResult = 0;
         List<char> chars = s.ToList();
-        // foreach (var ch in chars){
-        //     foreach(var letter in s){
-        //         if (letter == ch){
-        //             chars.Insert(count+1,'!');
-        //             count++;
-                    
-        //         }
-        //         else{
-        //             count++; 
-        //         }
-        //     }
-        // }
 
         int tCount = 0;
+        int c = 0;
+        var last = 0;
         foreach (var ch in s){
-            tCount++;
-            for (var bCount = 0;bCount < tCount - 1; bCount++){
+            for (var bCount = last;bCount < tCount; bCount++){ 
                if (s[bCount] == ch){
-                    chars.Insert(tCount-1,'!');
+                    chars.Insert(tCount + c,'!');
+                    last = tCount;
+                    c++;
+                    break;
                 }
             }
+            tCount++;
         }
 
-
-        count = 0;
+        var a = s.ToList();
+        a.Reverse();
+        List<char> charsA = s.ToList();
+        charsA.Reverse();
+        tCount = 0;
+        c = 0; 
+        last = 0;
+        foreach (var ch in a){
+            for (var bCount = last;bCount < tCount; bCount++){ 
+               if (a[bCount] == ch){
+                    charsA.Insert(tCount + c,'!');
+                    last = tCount;
+                    c++;
+                    break;
+                }
+            }
+            tCount++;
+        }
+        
+        int countResult = 0;
+        var count = 0;
         foreach (var item in chars){
             if (item == '!'){
               if (count > countResult){
                 countResult = count;
-                count = 0;
               }  
+              count = 0;
+              continue;
             }
             count++;
         }
+        if (count > countResult){
+            countResult = count;
+        }  
+        count = 0;
+
+        foreach (var item in charsA){
+            if (item == '!'){
+              if (count > countResult){
+                countResult = count;
+              }  
+              count = 0;
+              continue;
+            }
+            count++;
+        }
+
 
         return countResult;
     }
